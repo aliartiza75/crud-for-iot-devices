@@ -1,0 +1,577 @@
+{
+	"info": {
+		"_postman_id": "3fb1d73f-3b27-4a82-815d-7ab627d6ae85",
+		"name": "REST API NodeJS",
+		"description": "A boilerplate for REST API Development with Node.js and Expressjs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "userId",
+									"value": "A123456789A1",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "user2@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "firstName",
+									"value": "user",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "user",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "islamabad",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "pakistan",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "03133137377",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "qwerty786",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/register?=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "user1@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "qwerty786",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Device",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTliM2ZhYjI4NzJhNjY4NGEzNDRhOWQiLCJmaXJzdE5hbWUiOiJ1c2VyIiwibGFzdE5hbWUiOiJ1c2VyIiwiZW1haWwiOiJ1c2VyMUBnbWFpbC5jb20iLCJpYXQiOjE1ODcyNDMzNjUsImV4cCI6MTU4NzI1MDU2NX0.jGo-ZqcsMAeNdR-BjsvNtlAWa4FwF7YBtE3zZKc5l7o",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "deviceId",
+									"value": "a1asd1231asd1231",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "A",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "test device",
+									"type": "text"
+								},
+								{
+									"key": "batch",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "addedBy",
+									"value": "irtiza",
+									"type": "text"
+								},
+								{
+									"key": "active",
+									"value": "false",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/device/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"device",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Devices",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTliM2ZhYjI4NzJhNjY4NGEzNDRhOWQiLCJ1c2VySWQiOiJBMTIzNDU2Nzg5QSIsImZpcnN0TmFtZSI6InVzZXIiLCJsYXN0TmFtZSI6InVzZXIiLCJlbWFpbCI6InVzZXIxQGdtYWlsLmNvbSIsImlhdCI6MTU4NzI5NTUwNCwiZXhwIjoxNTg3MzAyNzA0fQ.7LbcGS5o0md85uFxZ4jyXdrGoyq1xDMU56P7lpmQqx0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/device/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"device",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Device Info",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTliM2ZhYjI4NzJhNjY4NGEzNDRhOWQiLCJmaXJzdE5hbWUiOiJ1c2VyIiwibGFzdE5hbWUiOiJ1c2VyIiwiZW1haWwiOiJ1c2VyMUBnbWFpbC5jb20iLCJpYXQiOjE1ODcyNDUwNTgsImV4cCI6MTU4NzI1MjI1OH0.J0NDANJ8FCeMEoZ98Re-ZDIa1l9qXdr6N7tzrufhPLc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/device/a1asd1231asd123",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"device",
+								"a1asd1231asd123"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Device",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTliM2ZhYjI4NzJhNjY4NGEzNDRhOWQiLCJmaXJzdE5hbWUiOiJ1c2VyIiwibGFzdE5hbWUiOiJ1c2VyIiwiZW1haWwiOiJ1c2VyMUBnbWFpbC5jb20iLCJpYXQiOjE1ODcyNDUwNTgsImV4cCI6MTU4NzI1MjI1OH0.J0NDANJ8FCeMEoZ98Re-ZDIa1l9qXdr6N7tzrufhPLc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "deviceId",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "type",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "aaaaaaaaa",
+									"type": "text"
+								},
+								{
+									"key": "batch",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "addedBy",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "active",
+									"value": "true",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/device/a1asd1231asd123",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"device",
+								"a1asd1231asd123"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Device",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTliM2ZhYjI4NzJhNjY4NGEzNDRhOWQiLCJmaXJzdE5hbWUiOiJ1c2VyIiwibGFzdE5hbWUiOiJ1c2VyIiwiZW1haWwiOiJ1c2VyMUBnbWFpbC5jb20iLCJpYXQiOjE1ODcyNDUwNTgsImV4cCI6MTU4NzI1MjI1OH0.J0NDANJ8FCeMEoZ98Re-ZDIa1l9qXdr6N7tzrufhPLc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/device/a1asd1231asd123",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"device",
+								"a1asd1231asd123"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Feed",
+			"item": [
+				{
+					"name": "Store a Feed",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTliM2ZhYjI4NzJhNjY4NGEzNDRhOWQiLCJ1c2VySWQiOiJBMTIzNDU2Nzg5QSIsImZpcnN0TmFtZSI6InVzZXIiLCJsYXN0TmFtZSI6InVzZXIiLCJlbWFpbCI6InVzZXIxQGdtYWlsLmNvbSIsImlhdCI6MTU4NzMwMjg5NiwiZXhwIjoxNTg3MzEwMDk2fQ.JrLj-sL8LmFBmEVlDhc5t3uISlLgqA2J07bkBZFHkKM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "userId",
+									"value": "A123456789A",
+									"type": "text"
+								},
+								{
+									"key": "deviceId",
+									"value": "a1asd1231asd1231",
+									"type": "text"
+								},
+								{
+									"key": "temperature",
+									"value": "2.12",
+									"type": "text"
+								},
+								{
+									"key": "rh",
+									"value": "2.12",
+									"type": "text"
+								},
+								{
+									"key": "osVer",
+									"value": "ubuntu",
+									"type": "text"
+								},
+								{
+									"key": "heatingStatus",
+									"value": "false",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/feed/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"feed",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Feed data",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTliM2ZhYjI4NzJhNjY4NGEzNDRhOWQiLCJ1c2VySWQiOiJBMTIzNDU2Nzg5QSIsImZpcnN0TmFtZSI6InVzZXIiLCJsYXN0TmFtZSI6InVzZXIiLCJlbWFpbCI6InVzZXIxQGdtYWlsLmNvbSIsImlhdCI6MTU4NzMwMjg5NiwiZXhwIjoxNTg3MzEwMDk2fQ.JrLj-sL8LmFBmEVlDhc5t3uISlLgqA2J07bkBZFHkKM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/feed/a1asd1231asd1231",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"feed",
+								"a1asd1231asd1231"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update A Feed",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTliM2ZhYjI4NzJhNjY4NGEzNDRhOWQiLCJ1c2VySWQiOiJBMTIzNDU2Nzg5QSIsImZpcnN0TmFtZSI6InVzZXIiLCJsYXN0TmFtZSI6InVzZXIiLCJlbWFpbCI6InVzZXIxQGdtYWlsLmNvbSIsImlhdCI6MTU4NzMwMjg5NiwiZXhwIjoxNTg3MzEwMDk2fQ.JrLj-sL8LmFBmEVlDhc5t3uISlLgqA2J07bkBZFHkKM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "temperature",
+									"value": "40",
+									"type": "text"
+								},
+								{
+									"key": "rh",
+									"value": "40",
+									"type": "text"
+								},
+								{
+									"key": "osVer",
+									"value": "redhat",
+									"type": "text"
+								},
+								{
+									"key": "heatingStatus",
+									"value": "true",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/feed/a1asd1231asd1231",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"feed",
+								"a1asd1231asd1231"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Feed",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTliM2ZhYjI4NzJhNjY4NGEzNDRhOWQiLCJ1c2VySWQiOiJBMTIzNDU2Nzg5QSIsImZpcnN0TmFtZSI6InVzZXIiLCJsYXN0TmFtZSI6InVzZXIiLCJlbWFpbCI6InVzZXIxQGdtYWlsLmNvbSIsImlhdCI6MTU4NzMwMjg5NiwiZXhwIjoxNTg3MzEwMDk2fQ.JrLj-sL8LmFBmEVlDhc5t3uISlLgqA2J07bkBZFHkKM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/feed/a1asd1231asd1231",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"feed",
+								"a1asd1231asd1231"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
