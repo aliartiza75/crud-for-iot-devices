@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node ./bin/server-start",
     "dev": "nodemon ./bin/server-start",
+    "ci": "eslint --fix --config .eslintrc.json \"**/*.js\"",
     "lint": "eslint --fix --config .eslintrc.json \"**/*.js\""
   },
   "dependencies": {
