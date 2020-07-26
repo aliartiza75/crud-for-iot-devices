@@ -6,11 +6,9 @@ node_js:
 branches:
   only:
     - master
-cache:
-  npm: true
-services:
-  - mongodb
 before_script:
-  - cp .env.example .env
+  - npm install
+script:
+  - npm run lint
 os:
   - linux
