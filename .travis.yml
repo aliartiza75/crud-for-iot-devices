@@ -6,12 +6,7 @@ node_js:
 branches:
   only:
     - master
-cache:
-  npm: true
-services:
-  - mongodb
 before_script:
   - npm install
-  - cp .env.example .env
 os:
   - linux
