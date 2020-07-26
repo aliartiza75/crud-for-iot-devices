@@ -81,4 +81,19 @@ npm run lint
 npm run dev
 ```
 
-7. Import the postman collection in the Postman application to use the api endpoints.
+7. Running as Docker container
+
+    1.  Build its image:
+
+    ```bash
+    sudo docker build -t crud-for-iot-devices:0.0.1 -f build/package/Dockerfile .    
+    ```
+
+    2.  Run it as a container:
+
+    ```bash
+    sudo docker run -it -e MONGODB_URL=mongodb://127.0.0.1:27017/crud-for-iot-devices -e JWT_SECRET=abc1235 -e JWT_TIMEOUT_DURATION="2 hours"  --net host    crud-for-iot-devices:0.0.1
+    ```
+
+
+8. Import the postman collection in the Postman application to use the api endpoints.
