@@ -23,4 +23,4 @@ jobs:
         run: | 
           wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.0.2311-linux.zip
           unzip sonar-scanner-cli-4.6.0.2311-linux.zip
-          sonar-scanner-4.6.0.2311-linux/bin/sonar-scanner -Dsonar.projectKey=fargate-new -Dsonar.sources=. -Dsonar.host.url=https://sonarqube.eonhealth.com -Dsonar.login=ebaf5c9a250abe99174cab8c3030a05f7ad5952b
+          sonar-scanner-4.6.0.2311-linux/bin/sonar-scanner -Dsonar.projectKey=crud-for-iot-devices -Dsonar.sources=. -Dsonar.host.url=https://sonarqube.eonhealth.com -Dsonar.login=1df73a2e495351b13e36cb1f8276b6d138964a5e
