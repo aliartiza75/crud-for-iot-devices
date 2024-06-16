@@ -1,6 +1,6 @@
 import json
 
-f = open("gi.json")
+f = open("sast-result.json")
 
 
 data = json.load(f)
