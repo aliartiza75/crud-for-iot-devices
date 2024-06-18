@@ -36,6 +36,7 @@ jobs:
         ls
         pwd
         echo "********************************************************"
-        sudo chmod +x ./dependency-check.sh
+        sudo chmod +x ./dependency-check/bin/dependency-check.sh
+        sudo ./dependency-check/bin/dependency-check.sh
 
 
