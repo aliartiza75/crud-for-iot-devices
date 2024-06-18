@@ -28,8 +28,10 @@ jobs:
 
     - name: Install OWASP Dependency Check
       run: |
+        apt update
+        apt install -y unzip
         wget https://github.com/jeremylong/DependencyCheck/releases/download/v6.5.3/dependency-check-6.5.3-release.zip
         unzip dependency-check-6.5.3-release.zip -d dependency-check
-        sudo chmod +x dependency-check/bin/dependency-check.sh
+        chmod +x dependency-check/bin/dependency-check.sh
 
 
