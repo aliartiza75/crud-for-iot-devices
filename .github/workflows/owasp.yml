@@ -42,7 +42,7 @@ jobs:
     - name: Run OWASP Dependency-Check
       uses: OWASP/dependency-check-action@v1
       with:
-        project: .
+        project: test
         scan: .
         format: 'ALL'
         outputDirectory: './dependency-check-report'
