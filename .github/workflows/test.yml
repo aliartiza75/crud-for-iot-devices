@@ -1,8 +1,4 @@
-# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
-name: OWASP Dependency Check
-
+name: OWASP
 on:
   push:
     branches: [ master ]
@@ -24,10 +20,9 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Build project with NPM
         run: npm install
-      
-      - name: Dependency check
+      - name: Depcheck
         uses: dependency-check/Dependency-Check_Action@main
-        id: Dependency check
+        id: Depcheck
         with:
           project: 'test'
           path: '.'
@@ -36,12 +31,6 @@ jobs:
           args: >
             --failOnCVSS 7
             --enableRetired
-      - name: Upload Dependency Check Report on Failure
-        if: failure()
-        uses: actions/upload-artifact@v3
-        with:
-          name: Depcheck report
-          path: ${{github.workspace}}/reports
       - name: Upload Test results
         uses: actions/upload-artifact@master
         with:
