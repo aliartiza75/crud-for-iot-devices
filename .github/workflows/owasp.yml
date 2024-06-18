@@ -26,17 +26,31 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Install OWASP Dependency Check
-      run: |
-        sudo apt update
-        sudo apt install -y unzip
-        wget https://github.com/jeremylong/DependencyCheck/releases/download/v6.5.3/dependency-check-6.5.3-release.zip
-        unzip dependency-check-6.5.3-release.zip
-        pwd
-        ls
-        pwd
-        echo "********************************************************"
-        sudo chmod +x ./dependency-check/bin/dependency-check.sh
-        sudo ./dependency-check/bin/dependency-check.sh
+    # - name: Install OWASP Dependency Check
+    #   run: |
+    #     sudo apt update
+    #     sudo apt install -y unzip
+    #     wget https://github.com/jeremylong/DependencyCheck/releases/download/v6.5.3/dependency-check-6.5.3-release.zip
+    #     unzip dependency-check-6.5.3-release.zip
+    #     pwd
+    #     ls
+    #     pwd
+    #     echo "********************************************************"
+    #     sudo chmod +x ./dependency-check/bin/dependency-check.sh
+    #     sudo ./dependency-check/bin/dependency-check.sh
+
+    - name: Run OWASP Dependency-Check
+      uses: OWASP/dependency-check-action@v1
+      with:
+        project: .
+        scan: .
+        format: 'ALL'
+        outputDirectory: './dependency-check-report'
+
+    - name: Upload Dependency-Check Report
+      uses: actions/upload-artifact@v2
+      with:
+        name: dependency-check-report
+        path: dependency-check-report
 
 
