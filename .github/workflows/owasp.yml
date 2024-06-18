@@ -32,7 +32,9 @@ jobs:
         sudo apt install -y unzip
         wget https://github.com/jeremylong/DependencyCheck/releases/download/v6.5.3/dependency-check-6.5.3-release.zip
         unzip dependency-check-6.5.3-release.zip
+        pwd
         ls
+        pwd
         echo "********************************************************"
         sudo chmod +x ./dependency-check.sh
 
