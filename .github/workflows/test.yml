@@ -36,8 +36,14 @@ jobs:
           args: >
             --failOnCVSS 7
             --enableRetired
+      - name: Upload Dependency Check Report on Failure
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: Depcheck report
+          path: ${{github.workspace}}/reports
       - name: Upload Test results
         uses: actions/upload-artifact@master
         with:
-           name: Depcheck report on success
+           name: Depcheck report
            path: ${{github.workspace}}/reports
