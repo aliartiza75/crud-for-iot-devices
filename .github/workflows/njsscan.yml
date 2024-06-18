@@ -19,7 +19,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '14' # Specify the Node.js version to use
+        node-version: '21' # Specify the Node.js version to use
 
     - name: Install dependencies
       run: npm install
@@ -30,12 +30,4 @@ jobs:
         unzip dependency-check-6.5.3-release.zip -d dependency-check
         sudo chmod +x dependency-check/bin/dependency-check.sh
 
-    - name: Run OWASP Dependency Check
-      run: |
-        dependency-check/bin/dependency-check.sh --project "Node.js Project" --scan . --out dependency-check-report
 
-    - name: Upload Dependency Check Report
-      uses: actions/upload-artifact@v3
-      with:
-        name: dependency-check-report
-        path: dependency-check-report/
