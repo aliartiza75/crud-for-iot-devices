@@ -40,10 +40,10 @@ jobs:
         if: failure()
         uses: actions/upload-artifact@v3
         with:
-          name: Depcheck report
+          name: Depcheck report on failure
           path: ${{github.workspace}}/reports
       - name: Upload Test results
         uses: actions/upload-artifact@master
         with:
-           name: Depcheck report
+           name: Depcheck report on success
            path: ${{github.workspace}}/reports
