@@ -54,7 +54,7 @@ jobs:
         # Runs Snyk Open Source (SCA) analysis and uploads result to Snyk.
       - name: Snyk Open Source monitor
         run: |
-          snyk auth $SNYK_TOKEN
+          snyk auth db3c688c-9228-4473-afbf-be6a4686a2bc
           snyk monitor --all-projects
 
         # Push the Snyk Code results into GitHub Code Scanning tab
