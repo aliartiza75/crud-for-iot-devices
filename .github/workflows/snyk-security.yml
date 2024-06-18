@@ -31,6 +31,7 @@ jobs:
       - name: install snyk-to-html
         run: |
           npm install snyk-to-html -g
+          snyk test --json | jq '.vulnerabilities |= sort_by(.publicationTime) | .vulnerabilities |= reverse'
           snyk test --json | snyk-to-html -o result.html
 
       - name: Use the Upload Artifact GitHub Action
