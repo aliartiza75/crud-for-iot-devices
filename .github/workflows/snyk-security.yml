@@ -1,63 +1,42 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
-# A sample workflow which sets up Snyk to analyze the full Snyk platform (Snyk Open Source, Snyk Code,
-# Snyk Container and Snyk Infrastructure as Code)
-# The setup installs the Snyk CLI - for more details on the possible commands
-# check https://docs.snyk.io/snyk-cli/cli-reference
-# The results of Snyk Code are then uploaded to GitHub Security Code Scanning
-#
-# In order to use the Snyk Action you will need to have a Snyk API token.
-# More details in https://github.com/snyk/actions#getting-your-snyk-token
-# or you can signup for free at https://snyk.io/login
-#
-# For more examples, including how to limit scans to only high-severity issues
-# and fail PR checks, see https://github.com/snyk/actions/
-
-name: Snyk Security
+name: Node.js CI
 
 on:
   push:
-    branches: ["master" ]
+    branches: [ master ]
   pull_request:
-    branches: ["master"]
-
-permissions:
-  contents: read
+    branches: [ master ]
 
 jobs:
-  snyk:
-    permissions:
-      contents: read # for actions/checkout to fetch code
-      security-events: write # for github/codeql-action/upload-sarif to upload SARIF results
-      actions: read # only required for a private repository by github/codeql-action/upload-sarif to get the Action run status
+  build:
+
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
     steps:
-      - uses: actions/checkout@v4
-      - name: Set up Snyk CLI to check for security issues
-        # Snyk can be used to break the build when it detects security issues.
-        # In this case we want to upload the SAST issues to GitHub Code Scanning
-        uses: snyk/actions/setup@806182742461562b67788a64410098c9d9b96adb
-
-        # For Snyk Open Source you must first set up the development environment for your application's dependencies
-        # For example for Node
-        #- uses: actions/setup-node@v3
-        #  with:
-        #    node-version: 16
-
-        env:
-          # This is where you will need to introduce the Snyk API token created with your Snyk account
-          SNYK_TOKEN: db3c688c-9228-4473-afbf-be6a4686a2bc
-
-        # Runs Snyk Open Source (SCA) analysis and uploads result to Snyk.
-      - name: Snyk Open Source monitor
-      - run: snyk auth ${SNYK_TOKEN}
-      - run: snyk monitor --all-projects
-
-        # Push the Snyk Code results into GitHub Code Scanning tab
-      - name: Upload result to GitHub Code Scanning
-        uses: github/codeql-action/upload-sarif@v2
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
         with:
-          sarif_file: snyk-code.sarif
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - run: npm install
+      - run: npm i -g snyk
+      - run: snyk auth db3c688c-9228-4473-afbf-be6a4686a2bc
+      - run: snyk monitor
+
+      - name: install snyk-to-html
+        run: |
+          npm install snyk-to-html -g
+          snyk test --json | snyk-to-html -o result.html
+          mkdir downloads
+          cp -v /home/runner/work/java-goof/java-goof/*.html /home/runner/work/java-goof/java-goof/downloads
+
+      - name: Use the Upload Artifact GitHub Action
+        uses: actions/upload-artifact@v2
+        with:
+          name: results
+          path: downloads
