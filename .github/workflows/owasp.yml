@@ -27,6 +27,8 @@ jobs:
       run: npm install
 
     - name: Install OWASP Dependency Check
+      with:
+        outputDirectory: './dependency-check-report'
       run: |
         sudo apt update
         sudo apt install -y unzip
@@ -38,6 +40,12 @@ jobs:
         echo "********************************************************"
         sudo chmod +x ./dependency-check/bin/dependency-check.sh
         sudo ./dependency-check/bin/dependency-check.sh --scan ./
+    - name: Upload Dependency-Check Report
+      uses: actions/upload-artifact@v2
+      with:
+        name: dependency-check-report
+        path: dependency-check-report
+    
 
 
 
