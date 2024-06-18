@@ -1,4 +1,4 @@
-name: OWASP
+name: OWASP Dependency Check
 on:
   push:
     branches: [ master ]
@@ -27,19 +27,19 @@ jobs:
           project: 'test'
           path: '.'
           format: 'HTML'
-          out: 'reports' # this is the default, no need to specify unless you wish to override it
+          out: 'reports'
           args: >
             --failOnCVSS 7
             --enableRetired
       - name: Upload Test results on success
         uses: actions/upload-artifact@master
         with:
-           name: Depcheck report
+           name: Depdency check report
            path: ${{github.workspace}}/reports
       - name: Upload Test results on failure
         if: failure()
         uses: actions/upload-artifact@master
         with:
-           name: Depcheck report
+           name: Dependency check report
            path: ${{github.workspace}}/reports
 
