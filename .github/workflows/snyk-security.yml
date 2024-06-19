@@ -31,12 +31,12 @@ jobs:
       - name: install snyk-to-html
         run: |
           npm install snyk-to-html -g
-          snyk test --json | jq '.vulnerabilities |= sort_by(.publicationTime) | .vulnerabilities |= reverse'
-          snyk test --json | snyk-to-html -o result.html
-          snyk test --json-file-output=result.json
+          # snyk test --json | jq '.vulnerabilities |= sort_by(.publicationTime) | .vulnerabilities |= reverse'
+          # snyk test --json | snyk-to-html -o result.html
+          snyk test --json-file-output=vuln.json
 
       - name: Use the Upload Artifact GitHub Action
         uses: actions/upload-artifact@v2
         with:
           name: results
-          path: result.html
+          path: vuln.json
